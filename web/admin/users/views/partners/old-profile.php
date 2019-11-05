@@ -172,7 +172,7 @@ $(document).ready(function(){
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNoYcEerlzFERLIc2D5WJmKdFd72UFbZw&callback=initMap">
+    src=null>
     </script>
     <div id="dir-button">
     	<button><a href="https://www.google.com/maps/dir//<?php echo urlencode($db_addr)?>"target="_blank">Get Directions to here</a></button>
