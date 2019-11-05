@@ -1,0 +1,31 @@
+## THIS IS VERY OLD 
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# hide profile action/subdirectory:  
+RewriteRule ^users/([a-zA-Z0-9-]+)$ users/profile/$1 [NC]
+# RewriteRule ^users/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)$ users/profile/$1/$2 [NC]
+
+RewriteRule ^coupons/([a-zA-Z0-9-]+)$ coupons/profile/$1 [NC]
+
+RewriteRule ^providers/([a-zA-Z0-9-]+)$ providers/profile/$1 [NC]
+
+RewriteRule ^categories/([a-zA-Z0-9-]+)$ categories/profile/$1 [NC]
+
+RewriteRule ^auctions/((?!add)[a-zA-Z0-9-]+)$ auctions/profile/$1 [NC]
+# RewriteRule ^auctions/add/?[a-zA-Z0-9-]+)?$ auctions/profile/add/$1 [NC]
+
+RewriteRule ^search?q=([a-zA-Z0-9-]+)?$ search/query/$1 [NC]
+
+# login page appears as /login, not /users/login
+RewriteRule ^login$ users/login [NC]
+RewriteRule ^logout$ users/logout [NC]
+
+RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?controller=$1&action=$2&id=$3&id_two=$4 [NC,L]
+# RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controller=$1&action=$2&subaction=$3&id=$4 [NC,L]
+
+# redirect to custom 404 page:
+# ErrorDocument 404 /notfound

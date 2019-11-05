@@ -1,0 +1,55 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# remove trailing slash
+RewriteRule ^(.*)/$ /$1 [L,R]
+# trailing whitespace
+RewriteCond %{QUERY_STRING} \s
+
+# main pages
+RewriteRule ^register$ home/register [NC]
+RewriteRule ^contact$ home/contact [NC]
+RewriteRule ^info$ home/info [NC]
+RewriteRule ^support$ home/support [NC]
+RewriteRule ^feedback$ home/feedback [NC]
+RewriteRule ^account$ home/account [NC]
+RewriteRule ^explore$ home/explore [NC]
+RewriteRule ^terms$ home/terms [NC]
+RewriteRule ^careers$ home/careers [NC]
+RewriteRule ^recover$ home/recover [NC]
+RewriteRule ^comingsoon$ home/comingsoon [NC]
+RewriteRule ^gavelgo$ home/gavelgo [NC]
+RewriteRule ^notifications$ home/notifications [NC]
+RewriteRule ^login$ home/login [NC]
+RewriteRule ^logout$ home/logout [NC]
+
+# user pages
+RewriteRule ^profile$ users/profile [NC]
+
+# coupon pages
+RewriteRule ^coupons/((?!add)[a-zA-Z0-9-]*)/?([a-zA-Z0-9-]*)?/?$ coupons/profile [NC]
+
+# cateogry pages
+RewriteRule ^categories/((?!subcategories)[a-zA-Z0-9-]+)$ categories/profile/$1 [NC]
+RewriteRule ^categories/subcategories/([a-zA-Z0-9-]+)$ categories/sub_profile/$1 [NC]
+
+# bid pages
+RewriteRule ^auctions/((?!add)[a-zA-Z0-9-=]+)$ auctions/profile/$1 [NC]
+
+# partner pages
+RewriteRule ^partners/([a-zA-Z0-9-]+)$ partners/profile/$1 [NC]
+
+# search pages
+#RewriteRule ^search?/?$ searches/index [NC]
+#RewriteRule ^search?q=([a-zA-Z0-9-]+)?$ search/query/$1 [NC]
+
+# index
+RewriteRule ^([a-zA-Z0-9-]*)/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9=-]*)?/?([a-zA-Z0-9=-]*)?/?$ index.php?controller=$1&action=$2&param=$3&param_two=$4 [NC,L]
+
+# show coming soon page to public during beta
+# RewriteRule ^index.php?/?$ coming-soon.html? [NC,R=301,L]
+
+# catch urls with file extensions e.g. /askhdjf.php
+ErrorDocument 404 /notfound

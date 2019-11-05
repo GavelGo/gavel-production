@@ -1,0 +1,6 @@
+{
+    "require": {
+        "cboden/ratchet": "0.4.*",
+        "react/zmq": "0.3.*|0.4.*"
+    }
+}

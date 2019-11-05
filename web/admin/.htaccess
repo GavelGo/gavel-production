@@ -1,0 +1,19 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# standalone pages 
+RewriteRule ^login$ home/login [NC]
+RewriteRule ^logout$ home/logout [NC]
+RewriteRule ^account$ home/account [NC]
+
+#RewriteRule ^auctions/([a-zA-Z0-9-]+)$ auctions/profile/$1 [NC]
+RewriteRule ^employees/((?!\bhours\b)[a-zA-Z0-9-]+)$ employees/profile/$1 [NC]
+RewriteRule ^partners/((?!\badd\b)[a-zA-Z0-9-]+)$ partners/profile/$1 [NC]
+
+RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?controller=$1&action=$2&id=$3&id_two=$4 [NC,L]
+
+# redirect to custom 404 page:
+# ErrorDocument 404 /notfound

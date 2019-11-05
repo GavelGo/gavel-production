@@ -1,0 +1,22 @@
+#bignav {
+  text-align:center;
+}
+
+#jumbo-ico {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  #search .jumbotron {
+    padding:20px;
+  }
+}
+
+.jumbotron p {
+  margin-top:10px;
+}
+
+.navbar-default .navbar-link {
+  color:#ffffff;
+}
+

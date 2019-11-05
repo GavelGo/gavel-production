@@ -1,0 +1,9 @@
+{
+    "require": {
+        "cboden/ratchet": "0.4.*",
+        "react/zmq": "0.2.*|0.3.*",
+        "psr/log": "^1.0",
+        "monolog/monolog": "^1.23",
+        "theorchard/monolog-cascade": "^0.5.0"
+    }
+}
